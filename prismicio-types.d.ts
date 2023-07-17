@@ -107,7 +107,10 @@ type PageDocumentDataSlicesSlice =
   | ImageSlice
   | ImageCardsSlice
   | TextWithImageSlice
-  | FrontpageSlice;
+  | FrontpageSlice
+  | CopyrightNoticeSlice
+  | MasonryImageGridSlice
+  | PageTitleCardSlice;
 /**
  * Page document from Prismic
  *
@@ -152,6 +155,52 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+/**
+ * Primary content in CopyrightNotice → Primary
+ *
+ */
+interface CopyrightNoticeSliceDefaultPrimary {
+  /**
+   * Copyright field in *CopyrightNotice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: copyright_notice.primary.copyright
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  copyright: prismic.RichTextField;
+}
+/**
+ * Default variation for CopyrightNotice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CopyrightNoticeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CopyrightNoticeSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *CopyrightNotice*
+ *
+ */
+type CopyrightNoticeSliceVariation = CopyrightNoticeSliceDefault;
+/**
+ * CopyrightNotice Shared Slice
+ *
+ * - **API ID**: `copyright_notice`
+ * - **Description**: `CopyrightNotice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CopyrightNoticeSlice = prismic.SharedSlice<
+  "copyright_notice",
+  CopyrightNoticeSliceVariation
+>;
 /**
  * Primary content in Frontpage → Primary
  *
@@ -462,6 +511,98 @@ export type ImageCardsSlice = prismic.SharedSlice<
   ImageCardsSliceVariation
 >;
 /**
+ * Item in MasonryImageGrid → Items
+ *
+ */
+export interface MasonryImageGridSliceDefaultItem {
+  /**
+   * Image field in *MasonryImageGrid → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: masonry_image_grid.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+}
+/**
+ * Default variation for MasonryImageGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MasonryImageGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<MasonryImageGridSliceDefaultItem>
+>;
+/**
+ * Slice variation for *MasonryImageGrid*
+ *
+ */
+type MasonryImageGridSliceVariation = MasonryImageGridSliceDefault;
+/**
+ * MasonryImageGrid Shared Slice
+ *
+ * - **API ID**: `masonry_image_grid`
+ * - **Description**: `MasonryImageGrid`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MasonryImageGridSlice = prismic.SharedSlice<
+  "masonry_image_grid",
+  MasonryImageGridSliceVariation
+>;
+/**
+ * Primary content in PageTitleCard → Primary
+ *
+ */
+interface PageTitleCardSliceDefaultPrimary {
+  /**
+   * Page Title field in *PageTitleCard → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title_card.primary.page_title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  page_title: prismic.TitleField;
+}
+/**
+ * Default variation for PageTitleCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageTitleCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PageTitleCardSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *PageTitleCard*
+ *
+ */
+type PageTitleCardSliceVariation = PageTitleCardSliceDefault;
+/**
+ * PageTitleCard Shared Slice
+ *
+ * - **API ID**: `page_title_card`
+ * - **Description**: `PageTitleCard`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageTitleCardSlice = prismic.SharedSlice<
+  "page_title_card",
+  PageTitleCardSliceVariation
+>;
+/**
  * Primary content in Quote → Primary
  *
  */
@@ -721,6 +862,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocument,
       AllDocumentTypes,
+      CopyrightNoticeSliceDefaultPrimary,
+      CopyrightNoticeSliceDefault,
+      CopyrightNoticeSliceVariation,
+      CopyrightNoticeSlice,
       FrontpageSliceDefaultPrimary,
       FrontpageSliceDefaultItem,
       FrontpageSliceDefault,
@@ -741,6 +886,14 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefault,
       ImageCardsSliceVariation,
       ImageCardsSlice,
+      MasonryImageGridSliceDefaultItem,
+      MasonryImageGridSliceDefault,
+      MasonryImageGridSliceVariation,
+      MasonryImageGridSlice,
+      PageTitleCardSliceDefaultPrimary,
+      PageTitleCardSliceDefault,
+      PageTitleCardSliceVariation,
+      PageTitleCardSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceDefault,
       QuoteSliceVariation,

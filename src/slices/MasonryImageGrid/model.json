@@ -1,0 +1,23 @@
+{
+  "id": "masonry_image_grid",
+  "type": "SharedSlice",
+  "name": "MasonryImageGrid",
+  "description": "MasonryImageGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}

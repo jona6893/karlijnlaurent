@@ -5,7 +5,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import { Bounded } from "./Bounded";
 import { useState } from "react";
 
-export function Header({ navigation, settings }) {
+export function HeaderFrontpage({ navigation, settings }) {
 const [fade, setFade] = useState("opacity-0");
 
 
@@ -17,11 +17,11 @@ setTimeout(() => {
 
 
   return (
-    <header className={`z-[10] top-0 left-0 right-0 ${fade}`}>
+    <header className={`absolute z-[10] top-0 left-0 right-0 ${fade}`}>
       <div className="relative py-[2.5vw] px-[4vw] flex flex-wrap items-center justify-between gap-x-6 gap-y-3 leading-none">
         <PrismicNextLink
           href="/"
-          className="tracking-normal max-md:text-headerTitleMobile md:text-headerTitle font-serif font-normal leading-[2.8rem] uppercase text-black"
+          className="tracking-normal max-md:text-headerTitleMobile md:text-headerTitle font-serif font-normal leading-[2.8rem] uppercase text-white"
         >
           <PrismicText field={settings.data.siteTitle} />
         </PrismicNextLink>
@@ -30,7 +30,7 @@ setTimeout(() => {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="tracking-normal text-slate-800 ml-[1.3vw] font-poppins font-light text-black"
+                className="tracking-normal text-slate-800 ml-[1.3vw] font-poppins font-light text-white"
               >
                 <PrismicNextLink field={item.link}>
                   <PrismicText field={item.label} />

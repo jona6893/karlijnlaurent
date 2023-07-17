@@ -1,0 +1,28 @@
+{
+  "id": "page_title_card",
+  "type": "SharedSlice",
+  "name": "PageTitleCard",
+  "description": "PageTitleCard",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "page_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Page Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
