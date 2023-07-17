@@ -22,7 +22,7 @@ const components = {
       data-slice-variation={slice.variation}
       className="py-[3.3vmax]"
     >
-      <div>
+      <div className="mb-4">
         <PrismicRichText
           field={slice.primary.page_title}
           components={components}

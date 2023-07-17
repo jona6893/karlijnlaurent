@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  arrow_direction: dynamic(() => import("./ArrowDirection")),
   copyright_notice: dynamic(() => import("./CopyrightNotice")),
   frontpage: dynamic(() => import("./Frontpage")),
   hero: dynamic(() => import("./Hero")),

@@ -29,16 +29,11 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "hero": { "type": "SharedSlice" },
-            "quote": { "type": "SharedSlice" },
-            "text": { "type": "SharedSlice" },
-            "image": { "type": "SharedSlice" },
-            "image_cards": { "type": "SharedSlice" },
-            "text_with_image": { "type": "SharedSlice" },
+            "masonry_image_grid": { "type": "SharedSlice" },
+            "page_title_card": { "type": "SharedSlice" },
             "frontpage": { "type": "SharedSlice" },
             "copyright_notice": { "type": "SharedSlice" },
-            "masonry_image_grid": { "type": "SharedSlice" },
-            "page_title_card": { "type": "SharedSlice" }
+            "arrow_direction": { "type": "SharedSlice" }
           }
         }
       }

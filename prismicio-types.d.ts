@@ -101,16 +101,11 @@ interface PageDocumentData {
  *
  */
 type PageDocumentDataSlicesSlice =
-  | HeroSlice
-  | QuoteSlice
-  | TextSlice
-  | ImageSlice
-  | ImageCardsSlice
-  | TextWithImageSlice
+  | MasonryImageGridSlice
+  | PageTitleCardSlice
   | FrontpageSlice
   | CopyrightNoticeSlice
-  | MasonryImageGridSlice
-  | PageTitleCardSlice;
+  | ArrowDirectionSlice;
 /**
  * Page document from Prismic
  *
@@ -155,6 +150,163 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+/**
+ * Primary content in ArrowDirection → Primary
+ *
+ */
+interface ArrowDirectionSliceDefaultPrimary {
+  /**
+   * Left PageTitle field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.left_pagetitle
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  left_pagetitle: prismic.TitleField;
+  /**
+   * Left PageLink field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.left_pagelink
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  left_pagelink: prismic.LinkField;
+  /**
+   * Right PageTitle field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.right_pagetitle
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  right_pagetitle: prismic.TitleField;
+  /**
+   * Right PageLink field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.right_pagelink
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  right_pagelink: prismic.LinkField;
+}
+/**
+ * Default variation for ArrowDirection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArrowDirectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ArrowDirectionSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Primary content in ArrowDirection → Primary
+ *
+ */
+interface ArrowDirectionSliceLeftArrowPrimary {
+  /**
+   * Left Page field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.left_page
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  left_page: prismic.TitleField;
+  /**
+   * Page Link field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.page_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  page_link: prismic.LinkField;
+}
+/**
+ * LeftArrow variation for ArrowDirection Slice
+ *
+ * - **API ID**: `leftArrow`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArrowDirectionSliceLeftArrow = prismic.SharedSliceVariation<
+  "leftArrow",
+  Simplify<ArrowDirectionSliceLeftArrowPrimary>,
+  never
+>;
+/**
+ * Primary content in ArrowDirection → Primary
+ *
+ */
+interface ArrowDirectionSliceRightArrowPrimary {
+  /**
+   * Right Page field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.right_page
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  right_page: prismic.TitleField;
+  /**
+   * Page Link field in *ArrowDirection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: arrow_direction.primary.page_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  page_link: prismic.LinkField;
+}
+/**
+ * RightArrow variation for ArrowDirection Slice
+ *
+ * - **API ID**: `rightArrow`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArrowDirectionSliceRightArrow = prismic.SharedSliceVariation<
+  "rightArrow",
+  Simplify<ArrowDirectionSliceRightArrowPrimary>,
+  never
+>;
+/**
+ * Slice variation for *ArrowDirection*
+ *
+ */
+type ArrowDirectionSliceVariation =
+  | ArrowDirectionSliceDefault
+  | ArrowDirectionSliceLeftArrow
+  | ArrowDirectionSliceRightArrow;
+/**
+ * ArrowDirection Shared Slice
+ *
+ * - **API ID**: `arrow_direction`
+ * - **Description**: `ArrowDirection`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ArrowDirectionSlice = prismic.SharedSlice<
+  "arrow_direction",
+  ArrowDirectionSliceVariation
+>;
 /**
  * Primary content in CopyrightNotice → Primary
  *
@@ -862,6 +1014,14 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocument,
       AllDocumentTypes,
+      ArrowDirectionSliceDefaultPrimary,
+      ArrowDirectionSliceDefault,
+      ArrowDirectionSliceLeftArrowPrimary,
+      ArrowDirectionSliceLeftArrow,
+      ArrowDirectionSliceRightArrowPrimary,
+      ArrowDirectionSliceRightArrow,
+      ArrowDirectionSliceVariation,
+      ArrowDirectionSlice,
       CopyrightNoticeSliceDefaultPrimary,
       CopyrightNoticeSliceDefault,
       CopyrightNoticeSliceVariation,

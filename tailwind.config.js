@@ -20,6 +20,8 @@ module.exports = {
       copy: "calc(.9 * 1rem)",
       pageTitle: "calc((4 - 1) * 1.2vw + 1rem)",
       pageTitleMobile: "calc((4 - 1) * calc(.012 * min(100vh, 900px)) + 1rem)",
+      nextPage: "calc((1.6 - 1) * 1.2vw + 1rem)",
+      nextPageMobile: "18px",
     },
     backgroundPosition: {
       frontpageBG: "50% 34%",

@@ -6,6 +6,7 @@ import { Bounded } from "./Bounded";
 import { useState } from "react";
 
 export function Header({ navigation, settings }) {
+  
 const [fade, setFade] = useState("opacity-0");
 
 

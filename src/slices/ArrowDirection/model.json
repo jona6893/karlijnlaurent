@@ -1,0 +1,106 @@
+{
+  "id": "arrow_direction",
+  "type": "SharedSlice",
+  "name": "ArrowDirection",
+  "description": "ArrowDirection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "left_pagetitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Left PageTitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "left_pagelink": {
+          "type": "Link",
+          "config": {
+            "label": "Left PageLink",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "right_pagetitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Right PageTitle",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "right_pagelink": {
+          "type": "Link",
+          "config": {
+            "label": "Right PageLink",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "leftArrow",
+      "name": "LeftArrow",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "left_page": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Left Page",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "page_link": {
+          "type": "Link",
+          "config": {
+            "label": "Page Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "rightArrow",
+      "name": "RightArrow",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "right_page": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Right Page",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "page_link": {
+          "type": "Link",
+          "config": { "label": "Page Link", "placeholder": "", "select": null }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
