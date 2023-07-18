@@ -54,6 +54,7 @@ function MobileHeader({ navigation, settings, frontpage, bgColor, textColor, pos
           className={`z-[2] duration-300 tracking-normal max-md:text-headerTitleMobile md:text-headerTitle font-serif font-normal leading-[2.8rem] uppercase text-${
             toggleMenu === true ? textColor : bgColor
           }`}
+          onClick={() => setToggleMenu(false)}
         >
           <PrismicText field={settings.data.siteTitle} />
         </PrismicNextLink>
@@ -100,7 +101,7 @@ function MobileHeader({ navigation, settings, frontpage, bgColor, textColor, pos
                   exit={{ opacity: 0, y: 200 }}
                   transition={{ duration: 0.2 }}
                   id="MobileText"
-                  className={`flex flex-col h-full`}
+                  className={`flex flex-col h-full relative items-center`}
                 >
                   <div
                     className={`flex flex-col h-full items-center justify-center`}
@@ -122,7 +123,7 @@ function MobileHeader({ navigation, settings, frontpage, bgColor, textColor, pos
                       </li>
                     ))}
                   </div>
-                  <div className="mb-[6vw] mx-[20px] flex justify-center gap-2">
+                  <div className="mb-[6vw] mx-[20px] flex justify-center gap-2 absolute bottom-[15%]">
                     {navigation.data?.icons.map((item, index) => (
                       <li
                         key={index+12}
