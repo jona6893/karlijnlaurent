@@ -76,6 +76,7 @@ setTimeout(() => {
                       beforeInjection={(svg) => {
                         svg.classList.add("headerIcon");
                       }}
+                      loading={() => <span>Loading</span>}
                       className={`${
                         router?.asPath === "/" ? "fill-white" : "fill-black"
                       }`}
