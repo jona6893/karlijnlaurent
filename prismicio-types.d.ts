@@ -18,6 +18,17 @@ interface NavigationDocumentData {
    *
    */
   links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
+  /**
+   * Icons field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.icons[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  icons: prismic.GroupField<Simplify<NavigationDocumentDataIconsItem>>;
 }
 /**
  * Item in Navigation → Links
@@ -40,6 +51,32 @@ export interface NavigationDocumentDataLinksItem {
    * - **Field Type**: Link
    * - **Placeholder**: Link for navigation item
    * - **API ID Path**: navigation.links[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Item in Navigation → Icons
+ *
+ */
+export interface NavigationDocumentDataIconsItem {
+  /**
+   * Icon field in *Navigation → Icons*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.icons[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * Link field in *Navigation → Icons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.icons[].link
    * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
@@ -105,7 +142,14 @@ type PageDocumentDataSlicesSlice =
   | PageTitleCardSlice
   | FrontpageSlice
   | CopyrightNoticeSlice
-  | ArrowDirectionSlice;
+  | ArrowDirectionSlice
+  | ImageCardsSlice
+  | TextWithImageSlice
+  | QuoteSlice
+  | TextSlice
+  | ImageSlice
+  | ClientsSlice
+  | PricesSlice;
 /**
  * Page document from Prismic
  *
@@ -306,6 +350,68 @@ type ArrowDirectionSliceVariation =
 export type ArrowDirectionSlice = prismic.SharedSlice<
   "arrow_direction",
   ArrowDirectionSliceVariation
+>;
+/**
+ * Primary content in Clients → Primary
+ *
+ */
+interface ClientsSliceDefaultPrimary {
+  /**
+   * Title field in *Clients → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: clients.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.TitleField;
+}
+/**
+ * Item in Clients → Items
+ *
+ */
+export interface ClientsSliceDefaultItem {
+  /**
+   * Client field in *Clients → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: clients.items[].client
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  client: prismic.ImageField<never>;
+}
+/**
+ * Default variation for Clients Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ClientsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ClientsSliceDefaultPrimary>,
+  Simplify<ClientsSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Clients*
+ *
+ */
+type ClientsSliceVariation = ClientsSliceDefault;
+/**
+ * Clients Shared Slice
+ *
+ * - **API ID**: `clients`
+ * - **Description**: `Clients`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ClientsSlice = prismic.SharedSlice<
+  "clients",
+  ClientsSliceVariation
 >;
 /**
  * Primary content in CopyrightNotice → Primary
@@ -755,6 +861,75 @@ export type PageTitleCardSlice = prismic.SharedSlice<
   PageTitleCardSliceVariation
 >;
 /**
+ * Primary content in Prices → Primary
+ *
+ */
+interface PricesSliceDefaultPrimary {
+  /**
+   * Title field in *Prices → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prices.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.TitleField;
+}
+/**
+ * Item in Prices → Items
+ *
+ */
+export interface PricesSliceDefaultItem {
+  /**
+   * TabTitle field in *Prices → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prices.items[].tabtitle
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  tabtitle: prismic.RichTextField;
+  /**
+   * Text field in *Prices → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prices.items[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Default variation for Prices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PricesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PricesSliceDefaultPrimary>,
+  Simplify<PricesSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Prices*
+ *
+ */
+type PricesSliceVariation = PricesSliceDefault;
+/**
+ * Prices Shared Slice
+ *
+ * - **API ID**: `prices`
+ * - **Description**: `Prices`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PricesSlice = prismic.SharedSlice<"prices", PricesSliceVariation>;
+/**
  * Primary content in Quote → Primary
  *
  */
@@ -978,12 +1153,52 @@ export type TextWithImageSliceWithButton = prismic.SharedSliceVariation<
   never
 >;
 /**
+ * Primary content in TextWithImage → Primary
+ *
+ */
+interface TextWithImageSliceImageLeftPrimary {
+  /**
+   * Text field in *TextWithImage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Image field in *TextWithImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+}
+/**
+ * ImageLeft variation for TextWithImage Slice
+ *
+ * - **API ID**: `imageLeft`
+ * - **Description**: `TextWithImage`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextWithImageSliceImageLeft = prismic.SharedSliceVariation<
+  "imageLeft",
+  Simplify<TextWithImageSliceImageLeftPrimary>,
+  never
+>;
+/**
  * Slice variation for *TextWithImage*
  *
  */
 type TextWithImageSliceVariation =
   | TextWithImageSliceDefault
-  | TextWithImageSliceWithButton;
+  | TextWithImageSliceWithButton
+  | TextWithImageSliceImageLeft;
 /**
  * TextWithImage Shared Slice
  *
@@ -1007,6 +1222,7 @@ declare module "@prismicio/client" {
     export type {
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
+      NavigationDocumentDataIconsItem,
       NavigationDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -1022,6 +1238,11 @@ declare module "@prismicio/client" {
       ArrowDirectionSliceRightArrow,
       ArrowDirectionSliceVariation,
       ArrowDirectionSlice,
+      ClientsSliceDefaultPrimary,
+      ClientsSliceDefaultItem,
+      ClientsSliceDefault,
+      ClientsSliceVariation,
+      ClientsSlice,
       CopyrightNoticeSliceDefaultPrimary,
       CopyrightNoticeSliceDefault,
       CopyrightNoticeSliceVariation,
@@ -1054,6 +1275,11 @@ declare module "@prismicio/client" {
       PageTitleCardSliceDefault,
       PageTitleCardSliceVariation,
       PageTitleCardSlice,
+      PricesSliceDefaultPrimary,
+      PricesSliceDefaultItem,
+      PricesSliceDefault,
+      PricesSliceVariation,
+      PricesSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceDefault,
       QuoteSliceVariation,
@@ -1068,6 +1294,8 @@ declare module "@prismicio/client" {
       TextWithImageSliceDefault,
       TextWithImageSliceWithButtonPrimary,
       TextWithImageSliceWithButton,
+      TextWithImageSliceImageLeftPrimary,
+      TextWithImageSliceImageLeft,
       TextWithImageSliceVariation,
       TextWithImageSlice,
     };

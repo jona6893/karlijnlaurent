@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 export const components = {
   arrow_direction: dynamic(() => import("./ArrowDirection")),
+  clients: dynamic(() => import("./Clients")),
   copyright_notice: dynamic(() => import("./CopyrightNotice")),
   frontpage: dynamic(() => import("./Frontpage")),
   hero: dynamic(() => import("./Hero")),
@@ -11,6 +12,7 @@ export const components = {
   image_cards: dynamic(() => import("./ImageCards")),
   masonry_image_grid: dynamic(() => import("./MasonryImageGrid")),
   page_title_card: dynamic(() => import("./PageTitleCard")),
+  prices: dynamic(() => import("./Prices")),
   quote: dynamic(() => import("./Quote")),
   text: dynamic(() => import("./Text")),
   text_with_image: dynamic(() => import("./TextWithImage")),

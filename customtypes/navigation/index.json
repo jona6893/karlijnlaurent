@@ -30,6 +30,22 @@
             }
           }
         }
+      },
+      "icons": {
+        "type": "Group",
+        "config": {
+          "label": "Icons",
+          "fields": {
+            "icon": {
+              "type": "Image",
+              "config": { "label": "Icon", "constraint": {}, "thumbnails": [] }
+            },
+            "link": {
+              "type": "Link",
+              "config": { "label": "Link", "placeholder": "", "select": null }
+            }
+          }
+        }
       }
     }
   }

@@ -43,10 +43,10 @@ console.log(imageRefs)
         });
       }
     };
-  }, []); */
+  }, []); 
   
   
-  console.log(animation)
+  console.log(animation)*/
 
   return (
     <section

@@ -33,7 +33,14 @@
             "page_title_card": { "type": "SharedSlice" },
             "frontpage": { "type": "SharedSlice" },
             "copyright_notice": { "type": "SharedSlice" },
-            "arrow_direction": { "type": "SharedSlice" }
+            "arrow_direction": { "type": "SharedSlice" },
+            "image_cards": { "type": "SharedSlice" },
+            "text_with_image": { "type": "SharedSlice" },
+            "quote": { "type": "SharedSlice" },
+            "text": { "type": "SharedSlice" },
+            "image": { "type": "SharedSlice" },
+            "clients": { "type": "SharedSlice" },
+            "prices": { "type": "SharedSlice" }
           }
         }
       }

@@ -14,3 +14,75 @@
 .mobileMenuIcon{
   height: 0px;
 }
+
+.disable-scroll {
+    overflow: hidden;
+    height: 100%; /* Optional based on your design */
+}
+
+.headerIcon{
+  width: 22px;
+  height: 22px;
+}
+.headerIconMobile{
+  width: 25px;
+  height: 25px;
+}
+
+/* REACT TABS */
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+  background: #fff;
+  border-color: #000000;
+  color: black;
+  border-radius: 5px 5px 0 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  outline: none;
+}
+
+.react-tabs__tab:focus:after {
+  content: '';
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: #fff;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+}

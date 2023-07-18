@@ -1,0 +1,33 @@
+{
+  "id": "clients",
+  "type": "SharedSlice",
+  "name": "Clients",
+  "description": "Clients",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {
+        "client": {
+          "type": "Image",
+          "config": { "label": "Client", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}
