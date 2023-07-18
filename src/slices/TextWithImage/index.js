@@ -5,8 +5,6 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 const TextWithImage = ({ slice }) => {
   const image = slice.primary.image;
 
-  console.log(slice.variation);
-
   const components = {
     heading2: ({ children }) => (
       <h2 className="max-md:text-h3 md:text-h3md mb-[6%] font-normal leading-pageTitle font-serif">

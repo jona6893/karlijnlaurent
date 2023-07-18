@@ -36,7 +36,7 @@ const title = {
   ),
 };
 
-console.log(slice)
+
   return (
     <section
       data-slice-type={slice.slice_type}

@@ -11,17 +11,10 @@ import { useRouter } from "next/router";
 export function Header({ navigation, settings }) {
   
 const [fade, setFade] = useState("opacity-0");
-/* const [props, setProps] = useState({
-  navigation: navigation,
-  settings: settings,
-  bgColor: "black",
-  textColor: "white",
-  position: "relative",
-}); */
 
 const router = useRouter();
 const query = router.query;
-console.log(query);
+/* console.log(query); */
 let paths = [];
 const nav = navigation.data.links;
 navigation.data.links.forEach((e, i) => {

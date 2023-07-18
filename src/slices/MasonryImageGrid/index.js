@@ -1,5 +1,4 @@
 import { PrismicNextImage } from "@prismicio/next";
-import { useEffect, useRef, useState } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 /**
@@ -10,43 +9,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 
 const MasonryImageGrid = ({ slice }) => {
-/* const imageRefs = useRef([]);
-const [animation, setAnimation] = useState(null)
 
-console.log(imageRefs)
-
- useEffect(() => {
-   const observer = new IntersectionObserver((entries) => {
-     entries.forEach((entry) => {
-       const imgIndex = imageRefs.current.findIndex(
-         (img) => img === entry.target
-       );
-
-       if (entry.isIntersecting) {
-         setAnimation(imgIndex);
-         imageRefs.current[imgIndex].classList.add("animation-class");
-        }  else {
-          imageRefs.current[imgIndex].classList.remove("animation-class");
-        } 
-      });
-    });
-    
-    imageRefs.current.forEach((img, index) => {
-      observer.observe(img);
-    });
-    
-    // Cleanup
-    return () => {
-      if (imageRefs.current) {
-        imageRefs.current.forEach((img, index) => {
-          observer.unobserve(img);
-        });
-      }
-    };
-  }, []); 
-  
-  
-  console.log(animation)*/
 
   return (
     <section

@@ -7,7 +7,7 @@ import { PrismicNextLink } from "@prismicio/next";
  * @param {ArrowDirectionProps}
  */
 const ArrowDirection = ({ slice }) => {
-  console.log(slice)
+
 
 const title = {
   heading2: ({ children }) => (

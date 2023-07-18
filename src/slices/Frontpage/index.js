@@ -20,7 +20,7 @@ const title = {
   paragraph: ({ children }) => <h1 className="font-mono">{children}</h1>,
 };
 
-  console.log(slice)
+
   return (
     <section
       data-slice-type={slice.slice_type}
