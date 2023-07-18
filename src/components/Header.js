@@ -11,6 +11,13 @@ import { useRouter } from "next/router";
 export function Header({ navigation, settings }) {
   
 const [fade, setFade] = useState("opacity-0");
+/* const [props, setProps] = useState({
+  navigation: navigation,
+  settings: settings,
+  bgColor: "black",
+  textColor: "white",
+  position: "relative",
+}); */
 
 const router = useRouter();
 const query = router.query;
@@ -21,6 +28,25 @@ navigation.data.links.forEach((e, i) => {
   paths.push(e.link.url);
 }); 
 
+let headerProps = {};
+
+if(router.asPath === "/") {
+  headerProps = {
+    navigation: navigation,
+    settings: settings,
+    bgColor: "white",
+    textColor: "black",
+    position: "absolute",
+  };
+} else{
+  headerProps = {
+    navigation: navigation,
+    settings: settings,
+    bgColor: "black",
+    textColor: "white",
+    position: "relative",
+  };
+}
 
 setTimeout(() => {
   setFade("opacity-1");
@@ -88,13 +114,7 @@ setTimeout(() => {
           </nav>
         </div>
       </header>
-      <MobileHeader
-        navigation={navigation}
-        settings={settings}
-        bgColor={"black"}
-        textColor={"white"}
-        position={"relative"}
-      />
+      <MobileHeader {...headerProps} />
     </>
   );
 }
