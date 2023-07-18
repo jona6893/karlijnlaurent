@@ -5,10 +5,20 @@ import { ReactSVG } from "react-svg";
 import { Bounded } from "./Bounded";
 import { useState } from "react";
 import MobileHeader from "./MobileHeader";
+import { useRouter } from "next/router";
 
 export function HeaderFrontpage({ navigation, settings }) {
 const [fade, setFade] = useState("opacity-0");
 const [toggleMenu, setToggleMenu] = useState(false)
+
+const router = useRouter();
+const query = router.query;
+
+ let paths = [];
+ const nav = navigation.data.links;
+ navigation.data.links.forEach((e, i) => {
+   paths.push(e.link.url);
+ }); 
 
 setTimeout(() => {
   setFade("opacity-1");
@@ -31,19 +41,24 @@ setTimeout(() => {
           </PrismicNextLink>
           <nav>
             <ul className="flex flex-wrap items-center">
-              {navigation.data?.links.map((item) => (
+              {navigation.data?.links.map((item, index) => (
                 <li
                   key={prismic.asText(item.label)}
                   className="tracking-normal text-slate-800 ml-[1.3vw] font-poppins font-light text-white"
                 >
-                  <PrismicNextLink field={item.link}>
+                  <PrismicNextLink
+                    field={item.link}
+                    className={`${
+                      router?.asPath === paths[index] && "underline"
+                    }  underline-offset-[10px]`}
+                  >
                     <PrismicText field={item.label} />
                   </PrismicNextLink>
                 </li>
               ))}
-              {navigation.data?.icons.map((item,index) => (
+              {navigation.data?.icons.map((item, index) => (
                 <li
-                  key={index+14}
+                  key={index + 14}
                   className="tracking-normal text-slate-800 ml-[1.3vw] font-poppins font-light text-white"
                 >
                   <PrismicNextLink
