@@ -62,23 +62,21 @@ function MobileHeader({ navigation, settings, frontpage, bgColor, textColor, pos
         <button
           onClick={() => setToggleMenu(!toggleMenu)}
           className={`z-[2] duration-100  w-[35px] flex flex-col relative ${
-            toggleMenu === true ? "h-[0px]" : "h-[11px]"
+            toggleMenu === true ? "h-[35px]" : "h-[35px]"
           }`}
         >
           <div
-            className={`duration-100  ${
-              toggleMenu === true ? "rotate-45" : "rotate-0"
+            className={`duration-100 absolute top-[10px] ${
+              toggleMenu === true ? "rotate-45 top-[17.5px]" : "rotate-0"
             } w-full h-[1px]  bg-${
               toggleMenu === true ? textColor : bgColor
-            } absolute top-full`}
+            } absolute `}
           />
 
           <div
-            className={`duration-100  ${
-              toggleMenu === true ? "rotate-[-45deg]" : "rotate-0"
-            } w-full h-[1px] bg-${
-              toggleMenu === true ? textColor : bgColor
-            }  absolute top-0`}
+            className={`duration-100 absolute bottom-[10px] ${
+              toggleMenu === true ? "rotate-[-45deg] top-[17.5px]" : "rotate-0"
+            } w-full h-[1px] bg-${toggleMenu === true ? textColor : bgColor}  `}
           />
         </button>
 
@@ -126,7 +124,7 @@ function MobileHeader({ navigation, settings, frontpage, bgColor, textColor, pos
                   <div className="mb-[6vw] mx-[20px] flex justify-center gap-2 absolute bottom-[15%]">
                     {navigation.data?.icons.map((item, index) => (
                       <li
-                        key={index+12}
+                        key={index + 12}
                         className="tracking-normal text-slate-800 ml-[1.3vw] font-poppins font-light text-white"
                       >
                         <PrismicNextLink
