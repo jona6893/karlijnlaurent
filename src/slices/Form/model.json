@@ -1,0 +1,50 @@
+{
+  "id": "form",
+  "type": "SharedSlice",
+  "name": "Form",
+  "description": "Form",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "submit_button": {
+          "type": "Text",
+          "config": { "label": "Submit Button", "placeholder": "" }
+        },
+        "submit_thank_you_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Submit Thank You Text 1",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "submit_thank_you_text_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Submit Thank You Text 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading4"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

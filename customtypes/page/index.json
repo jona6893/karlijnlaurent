@@ -40,7 +40,8 @@
             "text": { "type": "SharedSlice" },
             "image": { "type": "SharedSlice" },
             "clients": { "type": "SharedSlice" },
-            "prices": { "type": "SharedSlice" }
+            "prices": { "type": "SharedSlice" },
+            "form": { "type": "SharedSlice" }
           }
         }
       }

@@ -4,6 +4,11 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <meta
+          name="developer-note"
+          content="This Website was built by Jonathan Weldon.
+    If you're interested in having a website built, contact me at jona.weldon@icloud.com or visit weldon.dk"
+        />
         <link rel="icon" href="/fav.ico" sizes="any" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"

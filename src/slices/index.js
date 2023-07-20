@@ -6,6 +6,7 @@ export const components = {
   arrow_direction: dynamic(() => import("./ArrowDirection")),
   clients: dynamic(() => import("./Clients")),
   copyright_notice: dynamic(() => import("./CopyrightNotice")),
+  form: dynamic(() => import("./Form")),
   frontpage: dynamic(() => import("./Frontpage")),
   hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),

@@ -1,0 +1,49 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Have a question? Get in touch!",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"submit_button": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Submit"
+			},
+			"submit_thank_you_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Itself"
+						}
+					}
+				]
+			},
+			"submit_thank_you_text_2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Claws"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

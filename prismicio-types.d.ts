@@ -149,7 +149,8 @@ type PageDocumentDataSlicesSlice =
   | TextSlice
   | ImageSlice
   | ClientsSlice
-  | PricesSlice;
+  | PricesSlice
+  | FormSlice;
 /**
  * Page document from Prismic
  *
@@ -459,6 +460,79 @@ export type CopyrightNoticeSlice = prismic.SharedSlice<
   "copyright_notice",
   CopyrightNoticeSliceVariation
 >;
+/**
+ * Primary content in Form → Primary
+ *
+ */
+interface FormSliceDefaultPrimary {
+  /**
+   * Title field in *Form → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.TitleField;
+  /**
+   * Submit Button field in *Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.primary.submit_button
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  submit_button: prismic.KeyTextField;
+  /**
+   * Submit Thank You Text 1 field in *Form → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.primary.submit_thank_you_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  submit_thank_you_text: prismic.TitleField;
+  /**
+   * Submit Thank You Text 2 field in *Form → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.primary.submit_thank_you_text_2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  submit_thank_you_text_2: prismic.TitleField;
+}
+/**
+ * Default variation for Form Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FormSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FormSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Form*
+ *
+ */
+type FormSliceVariation = FormSliceDefault;
+/**
+ * Form Shared Slice
+ *
+ * - **API ID**: `form`
+ * - **Description**: `Form`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FormSlice = prismic.SharedSlice<"form", FormSliceVariation>;
 /**
  * Primary content in Frontpage → Primary
  *
@@ -1247,6 +1321,10 @@ declare module "@prismicio/client" {
       CopyrightNoticeSliceDefault,
       CopyrightNoticeSliceVariation,
       CopyrightNoticeSlice,
+      FormSliceDefaultPrimary,
+      FormSliceDefault,
+      FormSliceVariation,
+      FormSlice,
       FrontpageSliceDefaultPrimary,
       FrontpageSliceDefaultItem,
       FrontpageSliceDefault,

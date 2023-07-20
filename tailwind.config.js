@@ -30,7 +30,10 @@ module.exports = {
       h3prices: "calc(1.6 * 1rem)",
       h3pricesMobile: "calc((1.6 - 1) * calc(.012 * min(100vh, 900px)) + 1rem)",
       pricesTitle: "calc(4 * 1rem)",
-      pricesTitleMobile: "calc((4 - 1) * calc(.012 * min(100vh, 900px)) + 1rem)",
+      pricesTitleMobile:
+        "calc((4 - 1) * calc(.012 * min(100vh, 900px)) + 1rem)",
+      form: "calc((2.2 - 1) * 1.2vw + 1rem)",
+      formMobile: "calc((2.2 - 1) * calc(.012 * min(100vh, 900px)) + 1rem)",
     },
     backgroundPosition: {
       frontpageBG: "50% 34%",
