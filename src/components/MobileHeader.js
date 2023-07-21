@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
-import { ReactSVG } from "react-svg";
+import Image from "next/image";
 
 function MobileHeader({ navigation, settings, frontpage, bgColor, textColor, position }) {
   const [fade, setFade] = useState("opacity-0");
@@ -131,12 +131,14 @@ function MobileHeader({ navigation, settings, frontpage, bgColor, textColor, pos
                           field={item.link}
                           className="w-[25px] h-[25px]"
                         >
-                          <ReactSVG
+                          <Image
                             src={item.icon.url}
-                            beforeInjection={(svg) => {
-                              svg.classList.add("headerIconMobile");
-                            }}
-                            className={`fill-${textColor}`}
+                            width={item.icon.dimensions.width}
+                            height={item.icon.dimensions.height}
+                            alt="SoMe icon"
+                            className={`w-[25px] h-[25px] ${
+                              router?.asPath === "/" ? "invert-0" : "invert"
+                            }`}
                           />
                         </PrismicNextLink>
                       </li>
