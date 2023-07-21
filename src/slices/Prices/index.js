@@ -48,7 +48,7 @@ const title = {
       <Tabs className={"grid gap-4 justify-items-center max-md:px-[1rem]"}>
         <TabList
           className={
-            "border-0 mb-[2rem] text-large font-poppins text-center flex flex-wrap items-center"
+            "border-b pb-2 border-gray-400 mb-[2rem] text-large font-poppins text-center flex flex-wrap justify-center items-center"
           }
         >
           {slice.items.map((item, index) => (
