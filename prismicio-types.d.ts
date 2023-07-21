@@ -175,6 +175,17 @@ interface SettingsDocumentData {
    *
    */
   siteTitle: prismic.TitleField;
+  /**
+   * Meta Description field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Text used by google to tell people what your Website is about.
+   * - **API ID Path**: settings.meta_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_description: prismic.KeyTextField;
 }
 /**
  * Settings document from Prismic

@@ -47,30 +47,31 @@ const title = {
 
       <Tabs className={"grid gap-4 justify-items-center max-md:px-[1rem]"}>
         <TabList
-          className={"border-0 mb-[2rem] text-large font-poppins text-center"}
+          className={
+            "border-0 mb-[2rem] text-large font-poppins text-center flex flex-wrap"
+          }
         >
-          {slice.items.map((item) => (
-            <>
-              {" "}
-              <Tab>
+          {slice.items.map((item, index) => (
+            
+              <Tab key={index * 20}>
                 <PrismicRichText
                   field={item.tabtitle}
                   components={components}
                 />
               </Tab>
-            </>
+            
           ))}
         </TabList>
 
-        {slice.items.map((item) => (
-          <>
-            <TabPanel>
+        {slice.items.map((item, index) => (
+          
+            <TabPanel key={index * 21}>
               {/* <PrismicRichText field={item.tabtitle} components={components} /> */}
               <div className="grid justify-items-center text-center">
                 <PrismicRichText field={item.text} components={components} />
               </div>
             </TabPanel>
-          </>
+          
         ))}
       </Tabs>
     </section>

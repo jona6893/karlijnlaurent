@@ -14,6 +14,13 @@
           "allowTargetBlank": false,
           "single": "heading1"
         }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "Text used by google to tell people what your Website is about."
+        }
       }
     }
   }
