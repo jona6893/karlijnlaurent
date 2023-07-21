@@ -27,10 +27,14 @@ const Clients = ({ slice }) => {
     >
       <PrismicRichText field={slice.primary.title} components={components} />
       <div className="md:flex max-md:grid gap-6 flex-wrap items-center justify-around w-full">
-        {slice.items.map((item) => (
-          <>
-            <PrismicNextImage field={item.client} className="max-w-xs h-fit px-[2rem]" />
-          </>
+        {slice.items.map((item, index) => (
+          <div key={index * 19}>
+            <PrismicNextImage
+              field={item.client}
+              className="max-w-xs h-fit px-[2rem]"
+              alt=""
+            />
+          </div>
         ))}
       </div>
     </section>

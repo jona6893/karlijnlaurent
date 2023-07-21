@@ -29,6 +29,7 @@ const TextWithImage = ({ slice }) => {
                     field={image}
                     sizes="100vw"
                     className="w-full"
+                    alt=""
                   />
                 </div>
               )}
@@ -57,6 +58,7 @@ const TextWithImage = ({ slice }) => {
                     field={image}
                     sizes="100vw"
                     className="w-full"
+                    alt="icons"
                   />
                 </div>
               )}

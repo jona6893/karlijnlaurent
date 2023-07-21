@@ -1,11 +1,8 @@
 import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-
-import { Bounded } from "./Bounded";
+import { PrismicNextLink } from "@prismicio/next";
 import { useState } from "react";
 import MobileHeader from "./MobileHeader";
-import { ReactSVG } from "react-svg";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -13,11 +10,8 @@ export function Header({ navigation, settings }) {
   
 const [fade, setFade] = useState("opacity-0");
 
-console.log(navigation)
-
 const router = useRouter();
 const query = router.query;
-/* console.log(query); */
 let paths = [];
 const nav = navigation.data.links;
 navigation.data.links.forEach((e, i) => {
@@ -93,16 +87,6 @@ setTimeout(() => {
                     field={item.link}
                     className="w-[22px] h-[22px]"
                   >
-                    {/* <ReactSVG
-                      src={item.icon.url}
-                      beforeInjection={(svg) => {
-                        svg.classList.add("headerIcon");
-                      }}
-                      loading={() => <span>Loading</span>}
-                      className={`${
-                        router?.asPath === "/" ? "fill-white" : "fill-black"
-                      }`}
-                    /> */}
                     <Image
                       src={item.icon.url}
                       width={item.icon.dimensions.width}
