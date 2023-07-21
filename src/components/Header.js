@@ -7,10 +7,13 @@ import { useState } from "react";
 import MobileHeader from "./MobileHeader";
 import { ReactSVG } from "react-svg";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export function Header({ navigation, settings }) {
   
 const [fade, setFade] = useState("opacity-0");
+
+console.log(navigation)
 
 const router = useRouter();
 const query = router.query;
@@ -90,7 +93,7 @@ setTimeout(() => {
                     field={item.link}
                     className="w-[22px] h-[22px]"
                   >
-                    <ReactSVG
+                    {/* <ReactSVG
                       src={item.icon.url}
                       beforeInjection={(svg) => {
                         svg.classList.add("headerIcon");
@@ -98,6 +101,15 @@ setTimeout(() => {
                       loading={() => <span>Loading</span>}
                       className={`${
                         router?.asPath === "/" ? "fill-white" : "fill-black"
+                      }`}
+                    /> */}
+                    <Image
+                      src={item.icon.url}
+                      width={item.icon.dimensions.width}
+                      height={item.icon.dimensions.height}
+                      alt="SoMe icon"
+                      className={`w-[22px] h-[22px] ${
+                        router?.asPath === "/" ? "invert" : "invert-0"
                       }`}
                     />
                   </PrismicNextLink>
