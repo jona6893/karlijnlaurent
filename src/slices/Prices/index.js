@@ -66,7 +66,7 @@ const title = {
           <>
             <TabPanel>
               {/* <PrismicRichText field={item.tabtitle} components={components} /> */}
-              <div className="grid justify-items-center">
+              <div className="grid justify-items-center text-center">
                 <PrismicRichText field={item.text} components={components} />
               </div>
             </TabPanel>
